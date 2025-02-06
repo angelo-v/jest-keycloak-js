@@ -1,20 +1,18 @@
 import type { Config } from "jest";
 
 const config: Config = {
-  preset: "ts-jest",
-  testEnvironment: "node",
-  detectOpenHandles: true,
-  forceExit: true,
+  preset: "ts-jest/presets/default-esm",
   transform: {
-    // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
-    // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
     "^.+\\.[tj]s$": [
       "ts-jest",
       {
-      },
+        useESM: true
+      }
     ],
   },
-  transformIgnorePatterns: ["node_modules/(?!(keycloak-js))"],
+  cacheDirectory: ".jest-cache",
+  extensionsToTreatAsEsm: [".ts"],
+  transformIgnorePatterns: ["node_modules/(?!(keycloak-js))"]
 };
 
 export default config;
