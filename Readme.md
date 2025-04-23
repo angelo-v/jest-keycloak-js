@@ -1,5 +1,9 @@
 # ts-jest does not resolve ESM module with `exports`
 
+## ✅ Solved
+
+The problem described here was solved with ts-test `29.3.0` and setting `isolatedModules: true` in `tsconfig-json`. If you want to reproduce the issue as described checkout the `bug` tag.
+
 ## The problem
 
 Jest produces an error when running the test in this repo without cache.
